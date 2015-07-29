@@ -1,5 +1,5 @@
-- Améliorer l'animation
+- Améliorer l'animation personnage (ajouter des étapes au sprite)
 - Map loader
 - Système de combat
 - Système de dialogue
-- Quasiment tout, en fait ...
+- À peu près tout, en fait !
