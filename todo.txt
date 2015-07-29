@@ -1,0 +1,5 @@
+- Améliorer l'animation
+- Map loader
+- Système de combat
+- Système de dialogue
+- Quasiment tout, en fait ...
