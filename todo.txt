@@ -1,4 +1,4 @@
-- Améliorer l'animation personnage (ajouter des étapes au sprite)
+- Directions diagonnales sprite
 - Map loader
 - Système de combat
 - Système de dialogue
