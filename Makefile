@@ -3,7 +3,10 @@ NAME = rpg
 SRC = main.cpp \
 	Game.cpp \
 	Sprite.cpp \
-	SpriteChar.cpp \
+	Character.cpp \
+	Tile.cpp \
+	Map.cpp \
+	funct.cpp \
 
 SRC_DIR = Sources/
 

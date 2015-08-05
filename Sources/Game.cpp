@@ -1,6 +1,8 @@
 #include "Game.hpp"
 #include "Sprite.hpp"
-#include "SpriteChar.hpp"
+#include "Map.hpp"
+#include "Character.hpp"
+#include "Tile.hpp"
 
 Game::Game(void): _quit(false), _win(NULL), _rend(NULL), _event(new SDL_Event())
 {
@@ -24,10 +26,10 @@ void			Game::loop(void)
 {
 	Uint32		ticks = SDL_GetTicks();
 	const Uint8	*keys = SDL_GetKeyboardState(NULL);
-	Sprite		grass(this->_rend, "grass.bmp", 2000, 1200);
-	SpriteChar	maiwenn(this->_rend, "Maiwenn.png", (SDL_GetWindowSurface(this->_win)->w - 72) / 2, (SDL_GetWindowSurface(this->_win)->h - 96) / 2, 72, 96);
+	Character	maiwenn(new Sprite(this->_rend, "Maiwenn.png", (SDL_GetWindowSurface(this->_win)->w - 72) / 2, (SDL_GetWindowSurface(this->_win)->h - 96) / 2, 72, 96));
 	int		dirX;
 	int		dirY;
+	Map		mappy(this->_rend, "map_test");
 
 	while (this->_quit != true)
 	{
@@ -37,32 +39,33 @@ void			Game::loop(void)
 			dirY = 0;
 			ticks = SDL_GetTicks();
 			SDL_PollEvent(this->_event);
-
 			SDL_RenderClear(this->_rend);
 
+//			std::vector<Tile>		tiles = mappy.getTiles();
+//			std::vector<Tile>::iterator	it = tiles.begin();
+//			while (it != tiles.end())
+//			{
+//				(*it).draw(0, 0);
+//				it++;
+//			}
 			if (this->_event->type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE])
 				this->_quit = true;
 			if (keys[SDL_SCANCODE_UP])
 			{
-				grass.modY(2);
 				dirY -= 1;
 			}
 			if (keys[SDL_SCANCODE_DOWN])
 			{
-				grass.modY(-2);
 				dirY += 1;
 			}
 			if (keys[SDL_SCANCODE_LEFT])
 			{
-				grass.modX(2);
 				dirX -= 1;
 			}
 			if (keys[SDL_SCANCODE_RIGHT])
 			{
-				grass.modX(-2);
 				dirX += 1;
 			}
-			grass.draw();
 			maiwenn.animate(dirX, dirY);
 
 			SDL_RenderPresent(this->_rend);
