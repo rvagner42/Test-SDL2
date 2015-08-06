@@ -2,6 +2,7 @@
 #include "Sprite.hpp"
 #include "Map.hpp"
 #include "Character.hpp"
+#include "Camera.hpp"
 #include "Tile.hpp"
 
 Game::Game(void): _quit(false), _win(NULL), _rend(NULL), _event(new SDL_Event())
@@ -30,6 +31,7 @@ void			Game::loop(void)
 	int		dirX;
 	int		dirY;
 	Map		mappy(this->_rend, "map_test");
+	Camera		cam(mappy.getStartX(), mappy.getStartY());
 
 	while (this->_quit != true)
 	{
@@ -41,32 +43,9 @@ void			Game::loop(void)
 			SDL_PollEvent(this->_event);
 			SDL_RenderClear(this->_rend);
 
-			std::vector<Tile>		tiles = mappy.getTiles();
-			std::vector<Tile>::iterator	it = tiles.begin();
-			while (it != tiles.end())
-			{
-				(*it).draw(2, 2);
-				it++;
-			}
 			if (this->_event->type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE])
 				this->_quit = true;
-			if (keys[SDL_SCANCODE_UP])
-			{
-				dirY -= 1;
-			}
-			if (keys[SDL_SCANCODE_DOWN])
-			{
-				dirY += 1;
-			}
-			if (keys[SDL_SCANCODE_LEFT])
-			{
-				dirX -= 1;
-			}
-			if (keys[SDL_SCANCODE_RIGHT])
-			{
-				dirX += 1;
-			}
-			maiwenn.animate(dirX, dirY);
+			cam.move(maiwenn, mappy);
 
 			SDL_RenderPresent(this->_rend);
 		}

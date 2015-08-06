@@ -6,6 +6,7 @@ SRC = main.cpp \
 	Character.cpp \
 	Tile.cpp \
 	Map.cpp \
+	Camera.cpp \
 	funct.cpp \
 
 SRC_DIR = Sources/

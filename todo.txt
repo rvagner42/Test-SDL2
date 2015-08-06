@@ -1,4 +1,4 @@
 - Directions diagonnales sprite
-- Classe Camera + déplacements
+- Collisions déplacement
 - Système de combat
 - Système de dialogue
