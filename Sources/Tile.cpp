@@ -14,7 +14,6 @@ Tile::Tile(Tile const &src): _sprite(src.getSprite())
 
 Tile::~Tile(void)
 {
-	delete this->_sprite;
 	return ;
 }
 
@@ -38,7 +37,9 @@ bool			Tile::operator<(Tile const &rhs) const
 
 void			Tile::draw(int offset_x, int offset_y)
 {
-	this->_sprite->drawPos(this->getX() - offset_x, this->getY() - offset_y);
+	int		x = (offset_x - offset_y) * 32;
+	int		y = (offset_x + offset_y) * 16;
+	this->_sprite->drawPos(this->getX() + W/2 - x, this->getY() + H/2 - y);
 }
 
 // ----- Getters & Setters -----

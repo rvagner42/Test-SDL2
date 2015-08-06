@@ -61,8 +61,6 @@ void			Sprite::drawPos(int x, int y)
 	SDL_Rect tmp = this->getRect();
 	tmp.x = x;
 	tmp.y = y;
-	std::cout << "drawPos --- Sprite" << std::endl;
-	std::cout << tmp.x << " " << tmp.y << " " << tmp.w << " " << tmp.h << std::endl;
 	SDL_RenderCopy(this->_rend, this->_texture, NULL, &(tmp));
 }
 

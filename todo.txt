@@ -1,5 +1,4 @@
 - Directions diagonnales sprite
-- Map loader
+- Classe Camera + déplacements
 - Système de combat
 - Système de dialogue
-- À peu près tout, en fait !

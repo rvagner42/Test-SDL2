@@ -39,9 +39,8 @@ Map::Map(SDL_Renderer *renderer, std::string map_name)
 		while (it_line != line.end())
 		{
 			std::vector<std::string>::iterator	itmp = tile_log[*it_line].begin();
-			std::string				tile_name = *itmp;
 			itmp++;
-			bool					walk = (*itmp == "1") ? true : false;
+			bool					walk = (*itmp == "1");
 			this->_tiles.push_back(Tile(sprite_log[*it_line], x, y, walk));
 			it_line++;
 			x++;

@@ -41,13 +41,13 @@ void			Game::loop(void)
 			SDL_PollEvent(this->_event);
 			SDL_RenderClear(this->_rend);
 
-//			std::vector<Tile>		tiles = mappy.getTiles();
-//			std::vector<Tile>::iterator	it = tiles.begin();
-//			while (it != tiles.end())
-//			{
-//				(*it).draw(0, 0);
-//				it++;
-//			}
+			std::vector<Tile>		tiles = mappy.getTiles();
+			std::vector<Tile>::iterator	it = tiles.begin();
+			while (it != tiles.end())
+			{
+				(*it).draw(2, 2);
+				it++;
+			}
 			if (this->_event->type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE])
 				this->_quit = true;
 			if (keys[SDL_SCANCODE_UP])
