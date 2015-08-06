@@ -1,11 +1,11 @@
 #include "Camera.hpp"
 
-Camera::Camera(void): _x(-W/2), _y(-H/2)
+Camera::Camera(void): _x(-W/2 + 32), _y(-H/2 + 16)
 {
 	return ;
 }
 
-Camera::Camera(int start_x, int start_y): _x(start_x - W/2), _y(start_y - H/2)
+Camera::Camera(int start_x, int start_y): _x(start_x - W/2 + 32), _y(start_y - H/2 + 16)
 {
 	return ;
 }
@@ -62,7 +62,9 @@ void				Camera::move(Character &ch, Map &map)
 	std::vector<Tile>::iterator	it = tiles.begin();
 	while (it != tiles.end())
 	{
-		(*it).draw(this->getX(), this->getY());
+		if (it->getX() < this->getX() + W && it->getX() > this->getX() - 64
+			&& it->getY() < this->getY() + H && it->getY() > this->getY() - 64)
+			it->draw(this->getX(), this->getY());
 		it++;
 	}
 	ch.animate(dirX, dirY);

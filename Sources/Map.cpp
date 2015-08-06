@@ -9,6 +9,12 @@ Map::Map(SDL_Renderer *renderer, std::string map_name)
 	std::map<std::string, Sprite *>				sprite_log;
 
 	file = get_file("Maps/" + map_name);
+	if (file.size() == 0)
+	{
+		std::cerr << "Map error." << std::endl;
+		exit(0);
+	}
+
 	split = split_it(file, '\n');
 	it = split.begin();
 	while (*it != "COORD")

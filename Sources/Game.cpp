@@ -30,7 +30,7 @@ void			Game::loop(void)
 	Character	maiwenn(new Sprite(this->_rend, "Maiwenn.png", (SDL_GetWindowSurface(this->_win)->w - 72) / 2, (SDL_GetWindowSurface(this->_win)->h - 96) / 2, 72, 96));
 	int		dirX;
 	int		dirY;
-	Map		mappy(this->_rend, "map_test");
+	Map		mappy(this->_rend, "map_medium");
 	Camera		cam(mappy.getStartX(), mappy.getStartY());
 
 	while (this->_quit != true)
