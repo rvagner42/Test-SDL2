@@ -1,3 +1,3 @@
-# Rpg-SDL2
+# Test-SDL2
 
 Mini-game project to learn SDL2.
